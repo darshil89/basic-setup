@@ -15,7 +15,7 @@ export async function POST(request) {
       secure: false, // `true` for port 465, `false` for all other ports
       auth: {
         user: "deron.leffler@ethereal.email",
-        pass: process.env.SECRET,
+        pass: 'phFUb6PHAYKdEtqCpm',
       },
     });
 
