@@ -6,28 +6,27 @@ export async function POST(request) {
   console.log(body);
   const { subject, message } = body;
 
-  console.log(process.env.SECRET);
+ 
 
   try {
     const transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
-      secure: false, // `true` for port 465, `false` for all other ports
+      service: "Gmail",
       auth: {
-        user: "deron.leffler@ethereal.email",
-        pass: 'phFUb6PHAYKdEtqCpm',
+        user: "darshilmahraur93@gmail.com",
+        pass: process.env.SECRET,
       },
+      
     });
 
     const mailOptions = {
-      from: '"Hello there 👻" <deron.leffler@ethereal.email>',
+      from: '"Darshil 👻" <darshilmahraur93@gmail.com>',
       to: "darshilmahraur67@gmail.com",
       subject: `${subject}`,
       text: `${message}`,
       html: `
       <b>${subject}</b>
-         <p>${message}</p>
-            `,
+      <p>${message}</p>
+      `,
     };
 
     await transporter.sendMail(mailOptions);
